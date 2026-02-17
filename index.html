@@ -46,6 +46,23 @@ body{
   to{transform:translateY(-10vh);}
 }
 
+/* Meteor */
+.meteor{
+  position:absolute;
+  width:2px;
+  height:80px;
+  background:linear-gradient(white, rgba(255,255,255,0));
+  transform:rotate(45deg);
+  opacity:0.8;
+  pointer-events:none;
+  z-index:-1;
+  animation:fallMeteor linear infinite;
+}
+@keyframes fallMeteor{
+  from{transform:translate(0, -100px) rotate(45deg);}
+  to{transform:translate(120vw, 120vh) rotate(45deg);}
+}
+
 /* Form Glass */
 .container{
   max-width:450px;
@@ -112,12 +129,24 @@ button:hover{
 <div class="galaxy"></div>
 
 <script>
+// Particles
 for(let i=0;i<60;i++){
   const p=document.createElement("div");
   p.className="particle";
   p.style.left=Math.random()*100+"vw";
   p.style.animationDuration=(5+Math.random()*10)+"s";
   document.body.appendChild(p);
+}
+
+// Meteors
+for(let i=0;i<10;i++){
+  const m=document.createElement("div");
+  m.className="meteor";
+  m.style.left=Math.random()*100+"vw";
+  m.style.top=Math.random()*-100+"vh";
+  m.style.animationDuration=(2+Math.random()*3)+"s";
+  m.style.animationDelay=(Math.random()*5)+"s";
+  document.body.appendChild(m);
 }
 </script>
 
@@ -128,6 +157,10 @@ for(let i=0;i<60;i++){
 <input type="text" id="nama" placeholder="Nama" required>
 <input type="number" id="umur" placeholder="Umur" required>
 <input type="text" id="asal" placeholder="Asal" required>
+
+<!-- TAMBAHAN -->
+<input type="text" id="tiktok" placeholder="Akun tiktok" required>
+
 <select id="status" required>
 <option value="">Pilih Status</option>
 <option>Pelajar</option>
@@ -165,6 +198,7 @@ setTimeout(()=>{
 const nama=document.getElementById("nama").value;
 const umur=document.getElementById("umur").value;
 const asal=document.getElementById("asal").value;
+const tiktok=document.getElementById("tiktok").value; // TAMBAHAN
 const status=document.getElementById("status").value;
 const alasan=document.getElementById("alasan").value;
 
@@ -174,7 +208,7 @@ const message=
 Nama: ${nama}
 Umur: ${umur}
 Asal: ${asal}
-Akun tiktok${akun tiktok}
+Akun tiktok: ${tiktok}  // TAMBAHAN
 Status: ${status}
 Alasan masuk ISA: ${alasan}`;
 
@@ -188,57 +222,6 @@ loading.style.display="none";
 },1500);
 });
 </script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body {
-  margin: 0;
-  background: #001f26;
-  height: 100vh;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
-}
-
-/* Container posisi kanan */
-.container {
-  position: absolute;
-  right: 15px;
-  bottom: -100px; /* mulai dari bawah layar */
-}
-
-/* Teks ISA */
-.isa-community {
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  font-size: 18px;
-  color: #00ffe1;
-  animation: naik 6s linear infinite;
-}
-
-/* Animasi naik */
-@keyframes naik {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-120vh);
-  }
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-  <div class="isa-community">
-    ISA Community
-  </div>
-</div>
 
 </body>
 </html>
