@@ -220,43 +220,53 @@ loading.style.display="none";
 </body>
 </html>
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Animasi Tulisan Kecil</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #111;
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
+body {
+  margin: 0;
+  background: #001f26;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
 
-  .text {
-    font-size: 16px; /* ukuran kecil */
-    color: #00ffcc;
-    position: relative;
-    top: -100px; /* mulai dari atas */
-    opacity: 0;
-    animation: dropDown 2s forwards;
-  }
+/* Container posisi kanan */
+.container {
+  position: absolute;
+  right: 15px;
+  bottom: -100px; /* mulai dari bawah layar */
+}
 
-  @keyframes dropDown {
-    0% {
-      top: -100px;
-      opacity: 0;
-    }
-    100% {
-      top: 0;
-      opacity: 1;
-    }
+/* Teks ISA */
+.isa-community {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 18px;
+  color: #00ffe1;
+  animation: naik 6s linear infinite;
+}
+
+/* Animasi naik */
+@keyframes naik {
+  0% {
+    transform: translateY(0);
   }
+  100% {
+    transform: translateY(-120vh);
+  }
+}
 </style>
 </head>
+
 <body>
-  <div class="text">ISA Community</div>
+
+<div class="container">
+  <div class="isa-community">
+    ISA Community
+  </div>
+</div>
+
 </body>
 </html>
