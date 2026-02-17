@@ -223,33 +223,35 @@ loading.style.display="none";
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Animasi Tulisan</title>
+<title>Animasi Tulisan ISA Community</title>
 <style>
   body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #1e1e1e;
+    background-color: #111;
     margin: 0;
     font-family: Arial, sans-serif;
   }
 
   .text {
-    font-size: 50px;
+    font-size: 30px; /* ukuran sedang */
     color: #00ffcc;
+    position: relative;
+    top: -100px; /* mulai dari atas */
     opacity: 0;
-    animation: fadeIn 3s forwards;
+    animation: dropDown 2s forwards;
   }
 
-  @keyframes fadeIn {
+  @keyframes dropDown {
     0% {
+      top: -100px;
       opacity: 0;
-      transform: translateY(50px);
     }
     100% {
+      top: 0;
       opacity: 1;
-      transform: translateY(0);
     }
   }
 </style>
